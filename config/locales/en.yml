@@ -215,16 +215,19 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
-
-  Book_created: Book was successfully created.
-  Book_updated: Book was successfully updated.
-  Book_destroyed: Book was successfully destroyed.
-  Book_List: Books
-  New_Book: New Book
-  Editing_Book: Editing Book
-  Show_button: Show
-  Edit_button: Edit
-  Destroy_button: Destory
-  New_Book_button: New Book
-  Back_button: Back
+  controllers:
+    common:
+      book_created: Book was successfully created.
+      book_updated: Book was successfully updated.
+      book_destroyed: Book was successfully destroyed.
+  views:
+    common:
+      book_list: Books
+      new_book: New Book
+      editing_book: Editing Book
+      show_button: Show
+      edit_button: Edit
+      destroy_button: Destory
+      new_book_button: New Book
+      back_button: Back
 

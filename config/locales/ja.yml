@@ -179,16 +179,19 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
-
-  Book_created: データが登録されました
-  Book_updated: データが更新されました
-  Book_destroyed: ダータが削除されました
-  Book_List: 書籍一覧
-  New_Book: 新規登録
-  Editing_Book: 内容変更
-  Show_button: 表示
-  Edit_button: 編集
-  Destroy_button: 削除
-  New_Book_button: 新規作成
-  Back_button: 戻る
+  controllers:
+    common:
+      book_created: データが登録されました
+      book_updated: データが更新されました
+      book_destroyed: データが削除されました
+  views:
+    common:
+      book_list: 書籍一覧
+      new_book: 新規登録
+      editing_book: 内容変更
+      show_button: 表示
+      edit_button: 編集
+      destroy_button: 削除
+      new_book_button: 新規作成
+      back_button: 戻る
 
