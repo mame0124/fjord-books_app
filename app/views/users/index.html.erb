@@ -1,0 +1,27 @@
+<h1>ユーザー</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Eメール</th>
+      <th>氏名</th>
+      <th>郵便番号</th>
+      <th>住所</th>
+      <th>プロフィール</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.name %></td>
+        <td><%= user.zipcode %></td>
+        <td><%= user.address %></td>
+        <td><%= user.profile %></td>
+        <td><%= link_to '詳細', user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
