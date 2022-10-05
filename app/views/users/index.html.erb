@@ -1,13 +1,13 @@
-<h1>ユーザー</h1>
+<h1><%= User.model_name.human %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Eメール</th>
-      <th>氏名</th>
-      <th>郵便番号</th>
-      <th>住所</th>
-      <th>プロフィール</th>
+      <th><%= User.human_attribute_name(:email) %></th>
+      <th><%= User.human_attribute_name(:name) %></th>
+      <th><%= User.human_attribute_name(:zipcode) %></th>
+      <th><%= User.human_attribute_name(:address) %></th>
+      <th><%= User.human_attribute_name(:profile) %></th>
       <th></th>
     </tr>
   </thead>
@@ -20,8 +20,10 @@
         <td><%= user.zipcode %></td>
         <td><%= user.address %></td>
         <td><%= user.profile %></td>
-        <td><%= link_to '詳細', user %></td>
+        <td><%= link_to t('views.common.show'), user %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= paginate @users %>

@@ -1,31 +1,31 @@
-<h1>ユーザーの詳細</h1>
+<h1><%= "#{User.model_name.human}#{t('views.common.show')}" %></h1>
 
 <p>
-  <strong>Eメール:</strong>
+  <strong><%= User.human_attribute_name(:email) %></strong>
   <%= @user.email %>
 </p>
 
 <p>
-  <strong>氏名:</strong>
+  <strong><%= User.human_attribute_name(:name) %></strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <strong>郵便番号:</strong>
+  <strong><%= User.human_attribute_name(:zipcode) %></strong>
    <%= @user.zipcode %>
 </p>
 
 <p>
-  <strong>住所:</strong>
+  <strong><%= User.human_attribute_name(:address) %></strong>
   <%= @user.address %>
 </p>
 
 <p>
-  <strong>自己紹介文:</strong>
+  <strong><%= User.human_attribute_name(:profile) %></strong>
   <%= @user.profile %>
 </p>
 
 <% if current_user == @user %>
-  <%= link_to '編集', edit_user_registration_path %> |
+  <%= link_to t('views.common.edit'), edit_user_registration_path %> |
 <% end %>
-<%= link_to '戻る', users_path %>
+<%= link_to t('views.common.back'), users_path %>
