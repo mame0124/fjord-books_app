@@ -18,8 +18,8 @@
       <%= link_to t('views.common.edit_profile'), edit_user_registration_path %> |
       <%= link_to t('views.common.log_out'), destroy_user_session_path, method: :delete %>
     <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Login", new_user_session_path %>
+      <%= link_to t('views.common.sign_up'), new_user_registration_path %> |
+      <%= link_to t('views.common.login'), new_user_session_path %>
     <% end %>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
