@@ -39,11 +39,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  private
-    def user_params
-      params.require(:user).permit(:image)
-    end
-
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.

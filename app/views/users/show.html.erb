@@ -2,7 +2,7 @@
 
 <p>
   <% if @user.image.attached? %>
-    <%= image_tag @user.image %>
+    <%= image_tag @user.image.variant(resize:'800x800').processed %>
   <% end %>
 </p>
 
