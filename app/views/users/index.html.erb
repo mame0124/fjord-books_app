@@ -16,7 +16,7 @@
     <% @users.each do |user| %>
       <tr>
         <% if user.image.attached? %>
-          <td><%= image_tag user.image.variant(resize:'70').processed %></td>
+          <td><%= image_tag user.image.variant(resize_to_fill: [50,50]).processed %></td>
         <% else %>
           <td>             </td>
         <% end %>
