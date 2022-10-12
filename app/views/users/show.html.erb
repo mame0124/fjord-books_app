@@ -3,7 +3,7 @@
 <p>
   <% if @user.image.attached? %>
     <strong><%= User.human_attribute_name(:image) %>:</strong>
-    <%= @image_tag @user.image.variant(resize_to_fill: [50,50]) %>
+      <%= image_tag @user.image.variant(resize_to_fill: [50,50]) %>
   <% end %>
 </p>
 
