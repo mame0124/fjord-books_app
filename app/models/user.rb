@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   private
     def file_type
-      if !image.blob.content_type.in?(%('image/jpg image/png image/gif'))
+      if !image.blob.content_type.in?(%('image/jpg image/jpeg image/png image/gif'))
         errors.add(:image, 'は JPEG 形式または PNG 形式のみ選択してください')
       end
     end
