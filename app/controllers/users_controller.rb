@@ -10,14 +10,14 @@ class UsersController < ApplicationController
   end
 
   def following
-    @user  = User.find(params[:id])
-    @user_name = @user.name == "" ? @user.email : @user.name
+    @user = User.find(params[:id])
+    @user_name = @user.name == '' ? @user.email : @user.name
     @users = @user.following.with_attached_avatar.order(:id).page(params[:page])
   end
 
   def followers
-    @user  = User.find(params[:id])
-    @user_name = @user.name == "" ? @user.email : @user.name
+    @user = User.find(params[:id])
+    @user_name = @user.name == '' ? @user.email : @user.name
     @users = @user.followers.with_attached_avatar.order(:id).page(params[:page])
   end
 end
