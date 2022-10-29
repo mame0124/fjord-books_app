@@ -40,7 +40,7 @@
   </tbody>
 </table>
 
-<%= form_with(scope: :comment, url: report_comments_path(@report), local: true) do |f| %>
+<%= form_with(scope: :comment, url: polymorphic_path([@report, @report.comments.build]), local: true) do |f| %>
   <div class="field">
     <%= f.label :content %>
     <%= f.text_area :content %>
