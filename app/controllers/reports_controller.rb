@@ -7,6 +7,7 @@ class ReportsController < ApplicationController
 
   def show
     @comments = @report.comments.order(created_at: :desc)
+    @comment = @report.comments.build
   end
 
   def new
@@ -17,13 +18,20 @@ class ReportsController < ApplicationController
 
   def create
     user = User.find(params[:user_id])
-    @report = user.reports.create(report_params)
-    redirect_to reports_path, notice: t('controllers.common.notice_create', name: Report.model_name.human)
+    @report = user.reports.build(report_params)
+    if @report.save
+      redirect_to reports_path, notice: t('controllers.common.notice_create', name: Report.model_name.human)
+    else
+      render :new
+    end
   end
 
   def update
-    @report.update(report_params)
-    redirect_to reports_path, notice: t('controllers.common.notice_update', name: Report.model_name.human)
+    if @report.update(report_params)
+      redirect_to reports_path, notice: t('controllers.common.notice_update', name: Report.model_name.human)
+    else
+      render :edit
+    end
   end
 
   def destroy

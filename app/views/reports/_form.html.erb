@@ -14,12 +14,12 @@
   <div><%= hidden_field_tag :user_id, current_user.id %></div>
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, required: true %>
   </div>
 
   <div class="actions">
