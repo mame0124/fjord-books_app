@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Reports::CommentsController < ApplicationController
-
   def create
     @report = Report.find(params[:report_id])
     @comment = @report.comments.build(comment_params)
@@ -15,6 +14,6 @@ class Reports::CommentsController < ApplicationController
   end
 
   def comment_params
-      params.require(:comment).permit(:content)
-    end
+    params.require(:comment).permit(:content)
+  end
 end
