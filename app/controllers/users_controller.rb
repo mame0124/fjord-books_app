@@ -2,7 +2,6 @@
 
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show following followers]
-  before_action :set_user_name, only: %i[following followers]
 
   def index
     @users = User.with_attached_avatar.order(:id).page(params[:page])
@@ -20,9 +19,5 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
-  end
-
-  def set_user_name
-    @user_name = @user.name == '' ? @user.email : @user.name
   end
 end

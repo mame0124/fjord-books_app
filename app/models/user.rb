@@ -16,6 +16,10 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
+  def name_or_address
+    name == '' ? email : name
+  end
+
   # ユーザーをフォローする
   def follow(other_user)
     following << other_user
@@ -23,7 +27,7 @@ class User < ApplicationRecord
 
   # ユーザーをフォロー解除する
   def unfollow(other_user)
-    active_relationships.find_by(followed_id: other_user.id).delete
+    active_relationships.find_by!(followed_id: other_user.id).delete
   end
 
   # 現在のユーザーがフォローしてたらtrueを返す
