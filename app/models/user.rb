@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
-  def name_or_address
+  def name_or_email
     name == '' ? email : name
   end
 

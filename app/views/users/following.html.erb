@@ -1,4 +1,4 @@
-<h1><%= "#{@user.name_or_address}#{t('views.common.s')}#{t('views.common.following')}" %></h1>
+<h1><%= t('views.common.user_following', name: @user.name_or_email) %></h1>
 
 <%= render 'users', users: @users %>
 
