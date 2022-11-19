@@ -6,13 +6,21 @@ class CommentsController < ApplicationController
   def edit; end
 
   def update
-    @comment.update(comment_params)
-    redirect_to @comment.commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
+    if @comment.user == current_user
+      @comment.update(comment_params)
+      redirect_to @comment.commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
+    else
+      redirect_to @comment.commentable, notice: t('controllers.common.could_not_update')
+    end
   end
 
   def destroy
-    @comment.destroy
-    redirect_to @comment.commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
+    if @comment.user == current_user
+      @comment.destroy
+      redirect_to @comment.commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
+    else
+      redirect_to @comment.commentable, notice: t('controllers.common.could_not_destroy')
+    end
   end
 
   private

@@ -29,16 +29,24 @@ class ReportsController < ApplicationController
   end
 
   def update
-    if @report.update(report_params)
-      redirect_to reports_path, notice: t('controllers.common.notice_update', name: Report.model_name.human)
+    if @report.user == current_user
+      if @report.update(report_params)
+        redirect_to reports_path, notice: t('controllers.common.notice_update', name: Report.model_name.human)
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to reports_path, notice: t('controllers.common.could_not_update')
     end
   end
 
   def destroy
-    @report.destroy
-    redirect_to reports_path, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
+    if @report.user == current_user
+      @report.destroy
+      redirect_to reports_path, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
+    else
+      redirect_to reports_path, notice: t('controllers.common.could_not_destroy')
+    end
   end
 
   private
