@@ -218,6 +218,8 @@ ja:
       title_show: "%{name}の詳細"
       sign_out: ログアウト
       minimum_length: "%{length}文字以上"
+      contributor: 投稿者 
+      comment: コメントする
     pagination:
       first: '最初'
       last: '最後'
@@ -245,6 +247,8 @@ ja:
       notice_create: "%{name}が作成されました。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
+      could_not_update: "更新出来ませんでした。"
+      could_not_destroy: "削除出来ませんでした。"
   relationships:
     create:
       notice: "フォローしました。"
